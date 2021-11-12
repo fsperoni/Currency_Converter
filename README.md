@@ -12,4 +12,4 @@ Doctests were written for the helper functions. Unit tests were also written and
 ## User Flow
 Users will be presented with the home page of the website and **FROM** and **TO** currency entries are expected, as well as the **amount** to be converted. The list of supported currencies can be found [here](https://forex-python.readthedocs.io/en/latest/currencysource.html#list-of-supported-currency-codes). Once user input validation is completed (and passed), the conversion takes place and a screen with the conversion results is rendered, with the option to start a new conversion.
 
-Check it out at (https://fsperoni-currency-converter.herokuapp.com/)
+Check it out at https://fsperoni-currency-converter.herokuapp.com
