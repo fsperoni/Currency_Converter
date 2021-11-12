@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>
+  Converting {{from_info.symbol}}{{amount}} ({{from_info.code}}-{{from_info.name}}) leads to 
+  {{to_info.symbol}}{{converted_amount}} ({{to_info.code}}-{{to_info.name}}).</p>
+<a href="/"><button>New Conversion</button></a>
+{% endblock %}

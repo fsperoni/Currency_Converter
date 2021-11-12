@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>Select the currencies to convert FROM and TO respectively, followed by the amount to be converted, and click on Convert.</h4>
+{% for msg in get_flashed_messages() %}
+<div class="errorMessage">{{ msg }}</div>
+{% endfor %}
+<form action="/convert" method="POST">
+  <div class="fromDiv">
+    <label for="fromCurrency">Converting <strong>FROM:</strong></label>
+    <input type="text" name="fromCurrency" id="fromCurrency">
+  </div>  
+  <div class="toDiv">
+    <label for="toCurrency">Converting <strong>TO:</strong></label>
+    <input type="text" name="toCurrency" id="toCurrency">
+  </div>  
+  <div class="amountDiv">
+    <label for="amount">Amount:</label>
+    <input type="text" name="amount" id="amount">
+  </div>  
+  <button id="convertBtn">Convert</button>
+</form>
+<p>For list of supported currencies, see 
+  <a href="https://forex-python.readthedocs.io/en/latest/currencysource.html#list-of-supported-currency-codes"
+    target="_blank" rel="noopener noreferrer nofollow">here.</a></p>
+{% endblock %}
