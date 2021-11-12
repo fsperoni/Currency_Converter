@@ -17,7 +17,7 @@ def convert():
     
     from_curr = request.form["fromCurrency"].upper()
     to_curr = request.form["toCurrency"].upper()
-    amount = float(request.form["amount"])
+    amount = request.form["amount"]
     valid_from_curr = is_valid_currency(from_curr)
     valid_to_curr = is_valid_currency(to_curr)
     valid_amount = is_valid_amount(amount)
@@ -27,9 +27,10 @@ def convert():
     if not valid_to_curr:
         flash(f"Invalid TO currency: {to_curr}")
     if not valid_amount:
-        flash(f"Invalid amount: {'{:.2f}'.format(amount)}")
+        flash(f"Invalid amount: {amount}")
     
     if valid_from_curr and valid_to_curr and valid_amount:
+        amount = float(amount)
         rates = CurrencyRates()
         codes = CurrencyCodes()
         converted_amount = rates.convert(from_curr, to_curr, amount)
