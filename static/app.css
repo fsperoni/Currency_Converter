@@ -1,0 +1,86 @@
+body {
+  background-color: lightseagreen;
+  box-sizing: border-box;
+}
+
+h4 {
+  text-align: center;
+}
+
+label {
+  padding-right: 1rem;
+}
+
+input {
+  max-width: 5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: darkgreen;
+  color: white;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-style: none;
+}
+
+button:hover {
+  background-color: darkolivegreen;
+}
+
+.container {
+  width: 40%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: white;
+  box-shadow: 15px 15px 10px -10px black;
+}
+
+.errorMessage {
+  width: 30%;
+  margin: 0.4rem auto;
+  background-color: orange;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.fromDiv, .toDiv, .amountDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+@media (max-width: 1500px) {
+  .container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 90%;
+  }
+}
