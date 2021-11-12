@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, flash, redirect
 from forex_python.converter import CurrencyCodes, CurrencyRates
 from helpers import is_valid_amount,  is_valid_currency
+import os
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "super_secret"
+app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY', "super_secret")
 
 @app.route("/")
 def show_home():
