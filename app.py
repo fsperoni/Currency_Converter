@@ -46,7 +46,7 @@ def convert():
           "code": to_curr
         }
         return render_template("result.html", from_info=from_info, 
-                amount="{:.2f}".format(amount), to_info=to_info, 
-                converted_amount="{:.2f}".format(converted_amount) )
+                amount="{:,.2f}".format(amount), to_info=to_info, 
+                converted_amount="{:,.2f}".format(converted_amount) )
     else:
         return redirect("/")
