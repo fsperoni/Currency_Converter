@@ -1,23 +1,25 @@
 from flask import Flask, render_template, request, flash, redirect
 from forex_python.converter import CurrencyCodes, CurrencyRates
-from helpers import is_valid_amount,  is_valid_currency
+from helpers import is_valid_amount,  is_valid_currency, get_currencies
 import os
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
 
+CURRENCY_CODES = get_currencies()
+
 @app.route("/")
 def show_home():
     """Renders the homepage"""
 
-    return render_template("index.html")
+    return render_template("index.html", currencies=CURRENCY_CODES)
 
 @app.route("/convert", methods=["POST"])
 def convert():
     """Process data from the form to calculate currency conversion."""
     
-    from_curr = request.form["fromCurrency"].upper()
-    to_curr = request.form["toCurrency"].upper()
+    from_curr = request.form["from_currency"].upper()
+    to_curr = request.form["to_currency"].upper()
     amount = request.form["amount"]
     valid_from_curr = is_valid_currency(from_curr)
     valid_to_curr = is_valid_currency(to_curr)

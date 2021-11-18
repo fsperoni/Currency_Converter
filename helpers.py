@@ -39,3 +39,18 @@ def is_valid_amount(amount):
             return True
         else: 
             return False
+
+def get_currencies():
+    """Get list of supported currencies"""
+
+    c = CurrencyRates()
+    c_codes = CurrencyCodes()
+    currs_obj = c.get_rates('USD').keys()
+    curr_codes = [curr for curr in currs_obj]
+    curr_codes.append('USD')
+    currencies = []
+    for curr in curr_codes:
+        name = c_codes.get_currency_name(curr)
+        currencies.append(f"{curr} - {name}")
+    currencies.sort()
+    return currencies
