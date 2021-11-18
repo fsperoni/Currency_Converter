@@ -26,9 +26,9 @@ def convert():
     valid_amount = is_valid_amount(amount)
     
     if not valid_from_curr:
-        flash(f"Invalid FROM currency: {from_curr}")
+        flash("Please select FROM currency.")
     if not valid_to_curr:
-        flash(f"Invalid TO currency: {to_curr}")
+        flash("Please select TO currency.")
     if not valid_amount:
         flash(f"Invalid amount: {amount}")
     
