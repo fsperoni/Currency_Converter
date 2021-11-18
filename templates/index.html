@@ -8,6 +8,7 @@
   <div class="fromDiv">
     <label for="from_currency">Converting <strong>FROM:</strong></label>
     <select name="from_currency" id="from_currency">
+      <option hidden="">Select one</option>
       {% for curr in currencies %}
       <option value="{{ curr }}">{{ curr }}</option>
       {% endfor %}
@@ -16,6 +17,7 @@
   <div class="toDiv">
     <label for="to_currency">Converting <strong>TO:</strong></label>
     <select name="to_currency" id="to_currency">
+      <option hidden="">Select one</option>
       {% for curr in currencies %}
       <option value="{{ curr }}">{{ curr }}</option>
       {% endfor %}

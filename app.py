@@ -18,8 +18,8 @@ def show_home():
 def convert():
     """Process data from the form to calculate currency conversion."""
     
-    from_curr = request.form["from_currency"].upper()
-    to_curr = request.form["to_currency"].upper()
+    from_curr = request.form["from_currency"][:3]
+    to_curr = request.form["to_currency"][:3]
     amount = request.form["amount"]
     valid_from_curr = is_valid_currency(from_curr)
     valid_to_curr = is_valid_currency(to_curr)
