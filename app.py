@@ -33,7 +33,7 @@ def convert():
         flash(f"Invalid amount: {amount}")
     
     if valid_from_curr and valid_to_curr and valid_amount:
-        amount = float(amount)
+        amount = round(float(amount),2)
         rates = CurrencyRates()
         codes = CurrencyCodes()
         converted_amount = rates.convert(from_curr, to_curr, amount)
@@ -47,6 +47,9 @@ def convert():
           "name": codes.get_currency_name(to_curr),
           "code": to_curr
         }
+        now = datetime.now().strftime('%b %d %Y at %H:%M')
+        flash(f"Quote provided on: {now}")
+        
         return render_template("result.html", from_info=from_info, 
                 amount="{:,.2f}".format(amount), to_info=to_info, 
                 converted_amount="{:,.2f}".format(converted_amount) )

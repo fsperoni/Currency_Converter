@@ -3,5 +3,11 @@
 <p>
   Converting {{from_info.symbol}}{{amount}} ({{from_info.code}}-{{from_info.name}}) leads to 
   {{to_info.symbol}}{{converted_amount}} ({{to_info.code}}-{{to_info.name}}).</p>
-<a href="/"><button>New Conversion</button></a>
+{% for msg in get_flashed_messages() %}
+<p><b>{{ msg }}</b></p>
+{% endfor %}
+<div>
+  <button onclick="goBack()">Return</button>
+  <a href="/"><button>New Conversion</button></a>
+</div>
 {% endblock %}

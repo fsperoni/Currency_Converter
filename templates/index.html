@@ -2,7 +2,7 @@
 {% block content %}
 <h4>Select the currencies to convert FROM and TO respectively, followed by the amount to be converted, and click on Convert.</h4>
 {% for msg in get_flashed_messages() %}
-<div class="errorMessage">{{ msg }}</div>
+<div class="flashMessage">{{ msg }}</div>
 {% endfor %}
 <form action="/convert" method="POST">
   <div class="fromDiv">
@@ -25,7 +25,8 @@
   </div>  
   <div class="amountDiv">
     <label for="amount">Amount:</label>
-    <input type="text" name="amount" id="amount">
+    <input type="number" min="0" step="0.01" name="amount" 
+      id="amount" onchange="roundAmount()" required>
   </div>  
   <button id="convertBtn">Convert</button>
 </form>
