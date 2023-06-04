@@ -2,6 +2,8 @@ body {
   background-color: lightseagreen;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h4 {
@@ -13,7 +15,7 @@ label {
 }
 
 input {
-  max-width: 5rem;
+  min-width: 193px;
 }
 
 form {
@@ -30,6 +32,7 @@ button {
   margin-top: 1rem;
   cursor: pointer;
   border-style: none;
+  min-width: 120px;
 }
 
 button:hover {
@@ -47,8 +50,8 @@ button:hover {
   box-shadow: 15px 15px 10px -10px black;
 }
 
-.errorMessage {
-  width: 30%;
+.flashMessage {
+  width: 90%;
   margin: 0.4rem auto;
   background-color: orange;
   border-radius: 10px;
@@ -83,5 +86,15 @@ button:hover {
 @media (max-width: 800px) {
   .container {
     width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  .fromDiv, .toDiv, .amountDiv {
+    display: flex;
+    flex-direction: column;
+  }
+  input, select {
+    margin-top: 0.3rem;
   }
 }

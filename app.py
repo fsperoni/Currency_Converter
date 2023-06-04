@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect
 from forex_python.converter import CurrencyCodes, CurrencyRates
 from helpers import is_valid_amount,  is_valid_currency, get_currencies
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
@@ -48,8 +49,7 @@ def convert():
           "code": to_curr
         }
         now = datetime.now().strftime('%b %d %Y at %H:%M')
-        flash(f"Quote provided on: {now}")
-        
+        flash(f"Quote provided on: {now} UTC")
         return render_template("result.html", from_info=from_info, 
                 amount="{:,.2f}".format(amount), to_info=to_info, 
                 converted_amount="{:,.2f}".format(converted_amount) )
