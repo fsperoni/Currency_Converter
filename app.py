@@ -49,7 +49,7 @@ def convert():
           "code": to_curr
         }
         now = datetime.now().strftime('%b %d %Y at %H:%M')
-        flash(f"Quote provided on: {now} UTC")
+        flash(f"Quote provided on: {now}")
         return render_template("result.html", from_info=from_info, 
                 amount="{:,.2f}".format(amount), to_info=to_info, 
                 converted_amount="{:,.2f}".format(converted_amount) )

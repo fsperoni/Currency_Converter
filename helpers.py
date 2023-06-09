@@ -49,12 +49,15 @@ def get_currencies():
 
     c = CurrencyRates()
     c_codes = CurrencyCodes()
-    currs_obj = c.get_rates('USD').keys()
-    curr_codes = [curr for curr in currs_obj]
-    curr_codes.append('USD')
-    currencies = []
-    for curr in curr_codes:
-        name = c_codes.get_currency_name(curr)
-        currencies.append(f"{curr} - {name}")
-    currencies.sort()
-    return currencies
+    try:
+        currs_obj = c.get_rates('USD').keys()
+        curr_codes = [curr for curr in currs_obj]
+        curr_codes.append('USD')
+        currencies = []
+        for curr in curr_codes:
+            name = c_codes.get_currency_name(curr)
+            currencies.append(f"{curr} - {name}")
+        currencies.sort()
+        return currencies
+    except:
+        return []

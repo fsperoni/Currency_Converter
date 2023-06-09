@@ -4,6 +4,9 @@
 {% for msg in get_flashed_messages() %}
 <div class="flashMessage">{{ msg }}</div>
 {% endfor %}
+{% if currencies|length == 0 %}
+  <h3 class="apiError">Unable to fetch currencies and rates. Please try again later.</h3>
+{% endif %}
 <form action="/convert" method="POST">
   <div class="fromDiv">
     <label for="from_currency">Converting <strong>FROM:</strong></label>
@@ -28,6 +31,7 @@
     <input type="number" min="0" step="0.01" name="amount" 
       id="amount" onchange="roundAmount()" required>
   </div>  
-  <button id="convertBtn">Convert</button>
+  <button id="convertBtn" {% if currencies|length == 0 %}disabled{% endif %}>Convert</button>
+
 </form>
 {% endblock %}
